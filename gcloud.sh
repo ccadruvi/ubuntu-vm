@@ -21,3 +21,4 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 # To make gsutil work, BOTO_CONFIG has to be set, see also https://stackoverflow.com/questions/38783140/importerror-no-module-named-google-compute-engine
 export BOTO_CONFIG=/dev/null
 
+gcloud auth configure-docker
