@@ -5,4 +5,5 @@ npm
 shellcheck
 htop
 silversearcher-ag # recusive grep
-
+kubectl
+default-jdk

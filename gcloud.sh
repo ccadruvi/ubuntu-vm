@@ -17,6 +17,8 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 
 # Manual step to configure gcloud
 # gcloud init
+# Manual step to configure kubectl
+# gcloud container clusters get-credentials cluster -z europe-west1-b
 
 # To make gsutil work, BOTO_CONFIG has to be set, see also https://stackoverflow.com/questions/38783140/importerror-no-module-named-google-compute-engine
 export BOTO_CONFIG=/dev/null
