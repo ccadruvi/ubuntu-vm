@@ -8,3 +8,5 @@ PACKAGELIST="$BASEDIR/files/package.list"
 sudo apt update
 $INSTALL $(grep -v "^#" "$PACKAGELIST" | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
 
+# not very nice, but for now...
+sudo pip3 install thefuck
