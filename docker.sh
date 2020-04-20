@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Install docker
 
+# Relies on following packages being installed: apt-transport-https     ca-certificates     curl     software-properties-common
 
 versioncheck () {
         APT_SOURCE_LINE="$(grep "^deb.*docker" /etc/apt/sources.list || true)"
-        if [ -z "$APT_SOURCE_LINE" ] ; then
-                echo "docker apt repo is already configured, unattended upgrades should take of updates."
+        if [ ! -z "$APT_SOURCE_LINE" ] ; then
+                echo "docker apt repo is already configured, unattended upgrades should take care of updates."
                 exit 0
         fi
 }
@@ -13,7 +14,6 @@ versioncheck () {
 versioncheck
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-get install -y apt-transport-https     ca-certificates     curl     software-properties-common
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) \
 stable"
