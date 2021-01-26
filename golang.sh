@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-
+set -x
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 
 versioncheck () {
-	localversion="$(go version | sed -re "s#go version go(.*) .*#\1#g")"
-	remoteversion="$(curl "https://golang.org/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href="https://dl.google.com/go/go).*(?=.linux-amd64.tar.gz">)')"
+	localversion="$(go version | sed -re 's#go version go(.*) .*#\1#g')"
+	remoteversion="$(curl "https://golang.org/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href="/dl/).*(?=.linux-amd64.tar.gz">)')"
 	if [ "$localversion" = "$remoteversion" ] ; then
 		echo "Go is up to date"
 		exit 0
@@ -13,7 +13,7 @@ versioncheck () {
 
 versioncheck
 TMPDIR="$(mktemp -d)"
-URL="$(curl "https://golang.org/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href=").*linux-amd64.tar.gz(?=">)')"
+URL="https://golang.org$(curl "https://golang.org/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href=").*linux-amd64.tar.gz(?=">)')"
 
 cd "$TMPDIR"
 curl -L -o go.tgz "${URL}"
