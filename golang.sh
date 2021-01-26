@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 
 versioncheck () {
