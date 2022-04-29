@@ -3,7 +3,7 @@
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 
 versioncheck () {
-	localversion="$(go version | sed -re 's#go version go(.*) .*#\1#g')"
+	localversion="$(go version | awk '{ print $3 }')"
 	remoteversion="$(curl "https://go.dev/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href="/dl/).*(?=.linux-amd64.tar.gz">)')"
 	if [ "$localversion" = "$remoteversion" ] ; then
 		echo "Go is up to date"
