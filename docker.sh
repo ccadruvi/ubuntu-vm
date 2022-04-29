@@ -13,8 +13,9 @@ versioncheck () {
 
 versioncheck
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+osname=$(source /etc/os-release && echo $ID)
+curl -fsSL https://download.docker.com/linux/$osname/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$osname \
 $(lsb_release -cs) \
 stable"
 sudo apt-get update

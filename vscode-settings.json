@@ -1,0 +1,41 @@
+{
+    "files.insertFinalNewline": true,
+    "explorer.confirmDelete": false,
+    "go.formatTool": "goimports",
+    "git.autofetch": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 140,
+    // Set File Encondings from utf8 (default) to western europe dos (cp850)   
+    "[powershell]": {
+        "files.encoding": "windows1252"
+    },
+    "[bat]": {
+        "files.encoding": "windows1252"
+    },
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "docker.host":"ssh://azureuser@10.7.52.4",
+    "go.delveConfig": {
+
+        "dlvLoadConfig": {
+            "followPointers": true,
+            "maxVariableRecurse": 1,
+            "maxStringLen": 256,
+            "maxArrayValues": 64,
+            "maxStructFields": -1
+        },
+        "apiVersion": 2,
+        "showGlobalVariables": false
+    },
+    "explorer.confirmDragAndDrop": false,
+    "go.toolsManagement.autoUpdate": true,
+    "debug.onTaskErrors": "abort",
+    "diffEditor.renderSideBySide": false,
+    "redhat.telemetry.enabled": false,
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 3,
+}
+
