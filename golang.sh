@@ -23,3 +23,5 @@ sudo ln -sf /usr/local/go/bin/go /usr/local/bin/go
 
 cd "$BASEDIR"
 rm -rf "$TMPDIR"
+
+go version
