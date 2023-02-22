@@ -27,9 +27,12 @@ NicolasVuillamy.vscode-groovy-lint
 redhat.vscode-yaml
 timonwong.shellcheck
 VisualStudioExptTeam.vscodeintellicode
+github.copilot
+ms-vscode-remote.vscode-remote-extensionpack
 """
   echo "$extensions" | xargs -n 1 code --install-extension
-
+  echo "If you want to copy vscode settings too, remove the exit here"
+  exit 0
   mkdir -p ~/.config/Code/User
   cp ./vscode-settings.json ~/.config/Code/User/settings.json
 fi 
