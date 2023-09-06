@@ -1,5 +1,5 @@
 #!/bin/bash
 
 if ! command -v fuck &>/dev/null; then
-  pip install thefuck
+  pipx install thefuck
 fi

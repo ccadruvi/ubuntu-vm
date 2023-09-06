@@ -19,3 +19,5 @@ remmina
 keepassx
 thefuck
 putty-tools # convert windows ppks to pem
+python3-venv
+pipx
