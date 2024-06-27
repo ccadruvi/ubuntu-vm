@@ -1,5 +1,5 @@
 #!/bin/bash
 
 if ! command -v fuck &>/dev/null; then
-  sudo snap install thefuck
+  sudo snap install --beta thefuck --classic
 fi

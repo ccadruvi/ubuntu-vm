@@ -8,7 +8,6 @@ bash "$BASEDIR/packages.sh"
 bash "$BASEDIR/golang.sh"
 bash "$BASEDIR/docker.sh" $(whoami)
 bash "$BASEDIR/kubectl.sh"
-bash "$BASEDIR/openvpn.sh"
 bash "$BASEDIR/terraform.sh"
 bash "$BASEDIR/vscode.sh"
 bash "$BASEDIR/google-chrome.sh"
