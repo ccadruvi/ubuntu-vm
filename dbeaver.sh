@@ -2,11 +2,15 @@
 set -euo pipefail
 
 if ! command -v dbeaver-ce &> /dev/null; then
-        sudo apt update
-        sudo apt -y install default-jdk
-        curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
-        echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-        sudo apt update
-        sudo apt install dbeaver-ce
+        # Install Java (required for DBeaver)
+        sudo dnf install -y java-latest-openjdk
+        
+        # Download and install DBeaver RPM directly
+        echo "Downloading DBeaver Community Edition..."
+        curl -fsSL -o dbeaver-ce.rpm "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+        sudo dnf install -y ./dbeaver-ce.rpm
+        rm dbeaver-ce.rpm
+        
+        echo "DBeaver CE installed successfully"
 fi
 

@@ -2,19 +2,22 @@
 set -e
 
 versioncheck () {
-	if [ -f "/etc/apt/sources.list.d/google-cloud-sdk.list" ] ; then
-		echo "gcloud apt repo is already configured, unattended upgrades should take of updates."
+	if [ -f "/etc/yum.repos.d/google-cloud-sdk.repo" ] ; then
+		echo "gcloud dnf repo is already configured, dnf should take care of updates."
 		exit 0
 	fi
 }
 versioncheck
 
-sudo apt-get update
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-echo "deb [signed-by=/usr/share/keyrings/google-keyring.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/google-keyring.gpg 
+# Install Google Cloud CLI via official installation script
+echo "Installing Google Cloud CLI via official script..."
+curl https://sdk.cloud.google.com | bash
+echo "Please restart your shell or run: source ~/.bashrc"
+echo "Then run: gcloud init"
 
-sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk-gke-gcloud-auth-plugin
+# Alternative method if script fails:
+# sudo dnf install -y python3 python3-pip
+# pip3 install --user google-cloud-cli
 
 # Manual step to configure gcloud
 # gcloud init

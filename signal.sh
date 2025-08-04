@@ -1,20 +1,20 @@
 #!/bin/bash
 set -euo pipefail
 
-# Instructions at
-# https://signal.org/en/download/linux/
+# For Fedora, Signal is available via Flatpak or third-party repos
+# Using Flatpak for simplicity
 
 if ! command -v signal-desktop &> /dev/null; then
-  wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
-  cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+  # Install flatpak if not available
+  if ! command -v flatpak &> /dev/null; then
+    sudo dnf install -y flatpak
+  fi
   
-  # 2. Add our repository to your list of repositories
-  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-    sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-  rm -f signal-desktop-keyring.gpg
+  # Add flathub repo if not already added
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   
-  # 3. Update your package database and install signal
-  sudo apt update && sudo apt install signal-desktop
+  # Install Signal
+  flatpak install -y flathub org.signal.Signal
 else
   echo "already installed"
 fi

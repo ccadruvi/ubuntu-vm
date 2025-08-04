@@ -3,20 +3,17 @@ curl
 vim
 jq
 git
-shellcheck
+ShellCheck
 htop
-silversearcher-ag # recusive grep
-python3-dev
+the_silver_searcher # recusive grep
+python3-devel
 python3-pip
 python3-setuptools
-apt-transport-https
 ca-certificates
-software-properties-common
 flameshot
 xclip
-flameshot
 remmina
-keepassx
-putty-tools # convert windows ppks to pem
-python3-venv
+keepassxc
+putty # convert windows ppks to pem
 pipx
+nmap
