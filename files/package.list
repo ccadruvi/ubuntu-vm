@@ -17,3 +17,4 @@ keepassxc
 putty # convert windows ppks to pem
 pipx
 nmap
+make
