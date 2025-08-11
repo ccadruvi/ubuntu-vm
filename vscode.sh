@@ -7,7 +7,7 @@ if ! command -v code &> /dev/null; then
   
   sudo dnf check-update
   sudo dnf install code
-  extensions="""cfgweb.vscode-perl
+  extensions="cfgweb.vscode-perl
 DavidAnson.vscode-markdownlint
 DotJoshJohnson.xml
 foxundermoon.shell-format
@@ -25,8 +25,7 @@ redhat.vscode-yaml
 timonwong.shellcheck
 VisualStudioExptTeam.vscodeintellicode
 github.copilot
-ms-vscode-remote.vscode-remote-extensionpack
-"""
+ms-vscode-remote.vscode-remote-extensionpack"
   echo "$extensions" | xargs -n 1 code --install-extension
   echo "If you want to copy vscode settings too, remove the exit here"
   exit 0

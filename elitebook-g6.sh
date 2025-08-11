@@ -1,3 +1,4 @@
+#!/bin/bash
 # For the WIFI driver to work, do the following.
 # comment out all current apt sources in /etc/apt/sources.list and add the following:
 

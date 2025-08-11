@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo dnf install -y gnupg2
 sudo rpm --import https://raw.githubusercontent.com/pritunl/pgp/master/pritunl_repo_pub.asc
 

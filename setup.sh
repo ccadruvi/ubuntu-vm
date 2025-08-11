@@ -6,7 +6,7 @@ BASEDIR="$(dirname "$(readlink -f "$0")")"
 bash "$BASEDIR/packages.sh"
 #bash "$BASEDIR/gcloud.sh"
 bash "$BASEDIR/golang.sh"
-bash "$BASEDIR/docker.sh" $(whoami)
+bash "$BASEDIR/docker.sh" "$(whoami)"
 bash "$BASEDIR/kubectl.sh"
 bash "$BASEDIR/terraform.sh"
 bash "$BASEDIR/vscode.sh"

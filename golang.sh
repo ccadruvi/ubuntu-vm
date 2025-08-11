@@ -15,13 +15,13 @@ versioncheck
 TMPDIR="$(mktemp -d)"
 URL="https://go.dev$(curl "https://go.dev/dl/" 2> /dev/null | grep -oP '(?<=<a class="download downloadBox" href=").*linux-amd64.tar.gz(?=">)')"
 
-cd "$TMPDIR"
+cd "$TMPDIR" || exit
 curl -L -o go.tgz "${URL}"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go.tgz
 sudo ln -sf /usr/local/go/bin/go /usr/local/bin/go
 
-cd "$BASEDIR"
+cd "$BASEDIR" || exit
 rm -rf "$TMPDIR"
 
 go version
