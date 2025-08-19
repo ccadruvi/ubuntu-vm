@@ -3,7 +3,7 @@ curl
 vim
 jq
 git
-ShellCheck
+shellcheck
 htop
 the_silver_searcher # recusive grep
 python3-devel
@@ -18,3 +18,4 @@ putty # convert windows ppks to pem
 pipx
 nmap
 make
+ansible

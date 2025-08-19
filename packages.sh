@@ -6,5 +6,6 @@ BASEDIR="$(dirname "$(readlink -f "$0")")"
 PACKAGELIST="$BASEDIR/files/package.list"
 
 sudo dnf update -y
-$INSTALL "$(grep -v "^#" "$PACKAGELIST" | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")"
+# shellcheck disable=SC2086,SC2046
+$INSTALL $(grep -v "^#" "$PACKAGELIST" | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
 
