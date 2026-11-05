@@ -6,7 +6,7 @@ if ! command -v terraform &> /dev/null; then
   sudo tee /etc/yum.repos.d/hashicorp.repo > /dev/null <<EOF
 [hashicorp]
 name=Hashicorp Stable - \$basearch
-baseurl=https://rpm.releases.hashicorp.com/fedora/\$releasever/\$basearch/stable
+baseurl=https://rpm.releases.hashicorp.com/fedora/44/\$basearch/stable
 enabled=1
 gpgcheck=1
 gpgkey=https://rpm.releases.hashicorp.com/gpg
